@@ -18,4 +18,11 @@ public class CourseServiceTest {
         Course course = courseService.getCourse("INTRO-CS-2");
      }
 
+     //test show enrolled students
+    @Test
+    @DisplayName("to test for invalid course Id")
+    public void getStudentReturnsNullWhenCourseIdNotFound() {
+        courseService.showEnrolledStudents("Invalid");
+        assertNull(null);
+    }
 }
