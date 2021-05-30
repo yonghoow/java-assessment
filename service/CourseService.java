@@ -17,6 +17,10 @@ public class CourseService
 
     public CourseService()
     {
+        //Multiple courses belongs to a module
+        //A module can have multiple courses
+        //In constructor, CourseService register multiple courses - put to Course Map
+
         Module module = new Module( "INTRO-CS", "Introduction to Computer Science",
                                     "Introductory module for the generation technical programs" );
         registerCourse( new Course( "INTRO-CS-1", "Introduction to Computer Science", 9, module ) );
@@ -39,7 +43,6 @@ public class CourseService
             new Course( "INTRO-WEB-7", "Introduction to JavaScript for Web Development", 9, moduleWebFundamentals ) );
 
     }
-
 
     public void registerCourse( Course course )
     {
@@ -94,6 +97,24 @@ public class CourseService
             {
                 System.out.println( student );
             }
+        }
+    }
+
+    public void showAverage() {
+
+        double average = 0;
+
+        for (String key : enrolledStudents.keySet()) {
+
+            List<Student> students = enrolledStudents.get(key);
+            System.out.println("Course " + key + ": ");
+            for (Student student : students) {
+                average += student.getGrade(key);
+            }
+
+            //Calculate the average for a course
+            average = average / students.size();
+            System.out.println("Average grade : " + average);
         }
     }
 }

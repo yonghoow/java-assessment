@@ -22,7 +22,9 @@ public class PrinterHelper
         System.out.println( "| . 4 Enroll Student to Course  |" );
         System.out.println( "| . 5 Show Students Summary     |" );
         System.out.println( "| . 6 Show Courses Summary      |" );
-        System.out.println( "| . 7 Exit                      |" );
+        System.out.println( "| . 7 Show Passed Courses       |" );
+        System.out.println( "| . 8 Show Average Grade        |" );
+        System.out.println( "| . 9 Exit                      |" );
         System.out.println( "|-------------------------------|" );
     }
 

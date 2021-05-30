@@ -20,11 +20,12 @@ public class Module
         this.description = description;
     }
 
+    //Module Class could have a prerequisite module (e.g. need to complete module 1
+    //before module 2)
     public void addPrerequisite( Module module )
     {
         prerequisites.put( module.code, module );
     }
-
 
     public String getCode()
     {

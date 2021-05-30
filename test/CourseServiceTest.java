@@ -1,7 +1,9 @@
-package org.generation.service;
+package org.generation.test;
 
 import org.generation.model.Course;
+import org.generation.model.Module;
 import org.generation.model.Student;
+import org.generation.service.CourseService;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -15,14 +17,19 @@ public class CourseServiceTest {
     @Test
     @DisplayName("To test for course getter")
     public void getCourseReturnsCourseWhenIdMatchIsFound() {
-        Course course = courseService.getCourse("INTRO-CS-2");
+        String courseCode = "1234";
+        Course course = new Course (courseCode, "course name", 10,
+                new Module("code", "name", "description"));
+        courseService.registerCourse(course);
+        Course foundCourse = courseService.getCourse(courseCode);
+        assertEquals(foundCourse, course);
      }
 
-     //test show enrolled students
+     //test null course
     @Test
     @DisplayName("to test for invalid course Id")
     public void getStudentReturnsNullWhenCourseIdNotFound() {
-        courseService.showEnrolledStudents("Invalid");
-        assertNull(null);
+        Course nullCourse = courseService.getCourse("invalid");
+        assertNull(nullCourse);
     }
 }

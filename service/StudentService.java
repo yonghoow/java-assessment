@@ -27,28 +27,26 @@ public class StudentService
     public boolean isSubscribed( String studentId )
     {
         //TODO implement this method
-        if (students.containsKey(studentId)) {
-            return true;
-        }
-        return false;
+        return students.containsKey(studentId);
     }
 
     public void showSummary()
     {
         //TODO implement
         System.out.println("Available students: ");
-        for (String key: students.keySet()) {
-            Student student = students.get(key);
+        for (Student student : students.values()) {
             System.out.println(student);
         }
     }
 
     public void enrollToCourse( String studentId, Course course )
     {
-        if ( students.containsKey( studentId ) )
+        //Check if student has already enrolled to the course
+        if (students.containsKey(studentId) )
         {
-            students.get( studentId ).enrollToCourse( course );
+            students.get(studentId).enrollToCourse(course);
         }
+
     }
 
 
